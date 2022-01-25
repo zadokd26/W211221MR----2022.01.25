@@ -1,0 +1,86 @@
+.cart {
+  display: flex;
+
+  flex-direction: column;
+  gap: 10px;
+
+  background-color: lightblue;
+  padding: 10px;
+  margin-inline: auto;
+  width: 50vw;
+}
+
+.note {
+  background-color: lightgoldenrodyellow;
+}
+
+.only-on-print {
+  display: none;
+  background-color: lightcoral;
+}
+
+@media only screen and (max-width: 580px) {
+  .cart {
+    flex-direction: row;
+    width: 95vw;
+    overflow-x: scroll;
+    scrollbar-width: 0;
+  }
+  .cart::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: lightgray;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: lightgoldenrodyellow;
+  }
+}
+
+@media only print {
+  .cart {
+    background-color: initial;
+  }
+
+  .cart-item button {
+    display: none;
+  }
+
+  .only-on-print {
+    display: block;
+  }
+}
+
+.cart > .cart-item {
+  background-color: #00aa00;
+
+  border: 3px solid #0a0080;
+  border-radius: 19px;
+  box-shadow: 3px 4px 10px -4px rgba(30, 30, 30, 0.65);
+
+  padding: 10px;
+  min-width: 250px;
+}
+
+.cart > .cart-item > .name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.cart > .cart-item > .name + span::before {
+  content: "x";
+  margin-inline-end: 2px;
+}
+
+.cart-item > .change-amount {
+  display: flex;
+  width: 25%;
+  margin-inline: auto;
+
+  justify-content: space-evenly;
+}
